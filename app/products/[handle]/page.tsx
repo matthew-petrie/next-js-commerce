@@ -51,7 +51,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({ params }: { params: { handle: string } }) {
+export default async function ProductPage({ params }: Readonly<{ params: { handle: string } }>) {
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
@@ -107,7 +107,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   );
 }
 
-async function RelatedProducts({ id }: { id: string }) {
+async function RelatedProducts({ id }: Readonly<{ id: string }>) {
   const relatedProducts = await getProductRecommendations(id);
 
   if (!relatedProducts.length) return null;

@@ -31,7 +31,7 @@ const FooterMenuItem = ({ item }: { item: Menu }) => {
   );
 };
 
-export default function FooterMenu({ menu }: { menu: Menu[] }) {
+export default function FooterMenu({ menu }: Readonly<{ menu: Menu[] }>) {
   if (!menu.length) return null;
 
   return (

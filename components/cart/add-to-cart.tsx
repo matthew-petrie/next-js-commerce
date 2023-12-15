@@ -66,10 +66,10 @@ function SubmitButton({
 export function AddToCart({
   variants,
   availableForSale
-}: {
+}: Readonly<{
   variants: ProductVariant[];
   availableForSale: boolean;
-}) {
+}>) {
   const [message, formAction] = useFormState(addItem, null);
   const searchParams = useSearchParams();
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;

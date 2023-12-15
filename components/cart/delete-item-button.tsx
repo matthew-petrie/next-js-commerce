@@ -34,7 +34,7 @@ function SubmitButton() {
   );
 }
 
-export function DeleteItemButton({ item }: { item: CartItem }) {
+export function DeleteItemButton({ item }: Readonly<{ item: CartItem }>) {
   const [message, formAction] = useFormState(removeItem, null);
   const itemId = item.id;
   const actionWithVariant = formAction.bind(null, itemId);

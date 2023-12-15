@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import LogoIcon from './icons/logo';
 
-export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
+export default function LogoSquare({ size }: Readonly<{ size?: 'sm' }>) {
   return (
     <div
       className={clsx(

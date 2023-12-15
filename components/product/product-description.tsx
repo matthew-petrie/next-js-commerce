@@ -4,7 +4,7 @@ import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
 import { VariantSelector } from './variant-selector';
 
-export function ProductDescription({ product }: { product: Product }) {
+export function ProductDescription({ product }: Readonly<{ product: Product }>) {
   return (
     <>
       <div className="mb-6 flex flex-col border-b pb-6">

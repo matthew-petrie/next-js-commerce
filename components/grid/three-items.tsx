@@ -7,11 +7,11 @@ function ThreeItemGridItem({
   item,
   size,
   priority
-}: {
+}: Readonly<{
   item: Product;
   size: 'full' | 'half';
   priority?: boolean;
-}) {
+}>) {
   return (
     <div
       className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-2 md:row-span-1'}
@@ -30,7 +30,7 @@ function ThreeItemGridItem({
           alt={item.title}
           label={{
             position: size === 'full' ? 'center' : 'bottom',
-            title: item.title as string,
+            title: item.title,
             amount: item.priceRange.maxVariantPrice.amount,
             currencyCode: item.priceRange.maxVariantPrice.currencyCode
           }}
