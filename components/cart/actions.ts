@@ -6,21 +6,15 @@ import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 
 export async function addItem(prevState: any, selectedVariantId: string | undefined) {
+  if (!selectedVariantId) return 'Missing product variant ID';
+
   let cartId = cookies().get('cartId')?.value;
-  let cart;
+  let cart = cartId ? await getCart(cartId) : null;
 
-  if (cartId) {
-    cart = await getCart(cartId);
-  }
-
-  if (!cartId || !cart) {
+  if (!cartId) {
     cart = await createCart();
     cartId = cart.id;
     cookies().set('cartId', cartId);
-  }
-
-  if (!selectedVariantId) {
-    return 'Missing product variant ID';
   }
 
   try {

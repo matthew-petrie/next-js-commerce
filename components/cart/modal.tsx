@@ -155,7 +155,7 @@ export default function CartModal({ cart }: Readonly<{ cart: Cart | undefined }>
                       <Price
                         className="text-right text-base text-black"
                         amount={cart.cost.totalTaxAmount.amount}
-                        currencyCode={cart.cost.totalAmount.currencyCode}
+                        currencyCode={cart.cost.totalTaxAmount.currencyCode}
                       />
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1">
